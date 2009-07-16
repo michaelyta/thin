@@ -9,7 +9,7 @@ autorequire:
 bindir: bin
 cert_chain: []
 
-date: 2009-05-21 00:00:00 -04:00
+date: 2009-07-16 00:00:00 -04:00
 default_executable: 
 dependencies: 
 - !ruby/object:Gem::Dependency 
@@ -31,6 +31,16 @@ dependencies:
     - - ">="
       - !ruby/object:Gem::Version 
         version: 0.12.6
+    version:
+- !ruby/object:Gem::Dependency
+  name: reactor
+  type: :runtime
+  version_requirement:
+  version_requirements: !ruby/object:Gem::Requirement
+    requirements:
+    - - ">="
+      - !ruby/object:Gem::Version
+        version: 0.2.3
     version: 
 - !ruby/object:Gem::Dependency 
   name: daemons
@@ -42,7 +52,7 @@ dependencies:
       - !ruby/object:Gem::Version 
         version: 1.0.9
     version: 
-description: A thin and fast web server
+description: A thin and fast web server, with added neverblock support!
 email: macournoyer@gmail.com
 executables: 
 - thin
@@ -101,7 +111,6 @@ files:
 - lib/thin/statuses.rb
 - lib/thin/version.rb
 - lib/thin.rb
-- lib/thin_parser.bundle
 - spec/backends
 - spec/backends/swiftiply_client_spec.rb
 - spec/backends/tcp_server_spec.rb
@@ -146,8 +155,6 @@ files:
 - spec/rails_app/config/initializers/inflections.rb
 - spec/rails_app/config/initializers/mime_types.rb
 - spec/rails_app/config/routes.rb
-- spec/rails_app/log
-- spec/rails_app/log/mongrel_debug
 - spec/rails_app/public
 - spec/rails_app/public/404.html
 - spec/rails_app/public/422.html
