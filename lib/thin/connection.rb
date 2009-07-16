@@ -66,7 +66,7 @@ module Thin
         @reactor.detach(:read, @socket)
       end
       if after_writing        
-        @reactor.detach(:read, @socket) unless @reactor.attached?(:read, @socket)
+        @reactor.detach(:read, @socket) if @reactor.attached?(:read, @socket)
         @socket.close unless @socket.closed?
       end
     end
