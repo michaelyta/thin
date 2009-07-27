@@ -21,17 +21,17 @@ module Thin
         @server_socket.listen(511)
         @reactor.attach(:read, @server_socket) do |server, reactor|
           begin
-            loop do
-              connection = accept_connection
-            end
+            connection = accept_connection
           rescue Errno::EWOULDBLOCK, Errno::EAGAIN, Errno::EINTR
           rescue Exception => e
           end
         end        
         loop do
           begin
-            @reactor.run
-            break unless @reactor.running?
+            NB::Fiber.new do
+              @reactor.run
+              break unless @reactor.running?
+            end.resume
           rescue Exception => e
           end
         end
